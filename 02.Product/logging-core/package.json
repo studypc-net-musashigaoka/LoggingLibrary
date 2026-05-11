@@ -1,0 +1,35 @@
+{
+  "name": "@studypc-net-musashigaoka/logging-core",
+  "version": "1.0.0",
+  "description": "統一ログ出力ライブラリのコア機能",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./logging.schema.json": "./dist/logging.schema.json",
+    "./logging-core.schema.json": "./dist/logging-core.schema.json"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup src/index.ts --format cjs,esm --minify --dts --publicDir schema",
+    "clean": "tsc --build --clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "eslint": "^10.3.0",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
+  }
+}
