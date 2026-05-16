@@ -17,7 +17,7 @@ export class Configurator {
   static assign(/**@type{Record<string,any>}*/obj) {
     if (!obj) throw new TypeError(`obj is ${obj}`);
     const config = new Configurator();
-    if (obj.root != null && typeof obj.root === 'object') { // チェックは必須ではない
+    if (obj.root && typeof obj.root === 'object') {
       config.root = LoggerElement.assign({ ...obj.root, name: '' });
       if (config.root) config.logManager.defaultEffectiveLevel = config.root.level;
     }
@@ -30,11 +30,10 @@ export class Configurator {
     }
     return config;
   }
-  /**ロガー提供インターフェースを作成します @returns{ILoggerFactory}*/
+  /**ロガー提供インターフェースを作成します @returns{InstanceType<ReturnType<typeof ILoggerFactory>>}*/
   create() {
     const rootBuilder = this.#create(this.root?.appenders);
     const factory = new LoggerFactory(rootBuilder ? new GenericLoggerBuilder(rootBuilder) : undefined);
-    // 作成中
     for (const logger of this.loggers??[]) {
       const builder = this.#create(logger.appenders);
       if (builder) factory.set(logger.name, new GenericLoggerBuilder(builder));

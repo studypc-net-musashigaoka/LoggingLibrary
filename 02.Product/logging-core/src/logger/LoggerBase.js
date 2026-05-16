@@ -6,7 +6,7 @@ import { empty, ILogger } from "../ILogger.js";
 
 export const settings = { ttl: 1000 };
 
-export class LoggerBase extends ILogger {
+export class LoggerBase extends ILogger() {
   _logManager;
   _name;
   #cacheExpires = -1;
@@ -37,7 +37,7 @@ export class LoggerBase extends ILogger {
   get alert    () { return this.isAlertEnabled    () ? this._alert     : empty; }
   get fatal    () { return this.isFatalEnabled    () ? this._fatal     : empty; }
   get emergency() { return this.isEmergencyEnabled() ? this._emergency : empty; }
-  constructor(/**@type{ILogManager}*/logManager, /**@type{string}*/name) {
+  constructor(/**@type{InstanceType<ReturnType<typeof ILogManager>>}*/logManager, /**@type{string}*/name) {
     super();
     if (!logManager) throw new TypeError(`logManager is ${logManager}`);
     this._logManager = logManager;

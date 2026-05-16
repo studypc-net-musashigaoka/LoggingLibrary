@@ -4,12 +4,12 @@ import { ILogger } from "../ILogger.js";
 import { ILoggerBuilder } from "./ILoggerBuilder.js";
 
 /** オーバーロードタイプ
- * @typedef {new (name: string) => ILogger} LoggerClass
- * @typedef {    (name: string) => ILogger} LoggerFn
+ * @typedef {new (name: string) => InstanceType<ReturnType<typeof ILogger>>} LoggerClass
+ * @typedef {    (name: string) => InstanceType<ReturnType<typeof ILogger>>} LoggerFn
  */
 
 /** 任意のロガー生成ロジックを登録できるロガー生成器 */
-export class GenericLoggerBuilder extends ILoggerBuilder {
+export class GenericLoggerBuilder extends ILoggerBuilder() {
   /**@type{LoggerClass|null}*/#class;
   /**@type{LoggerFn}*/#fn;
   constructor(/**@type{LoggerClass|LoggerFn}*/generic) {

@@ -3,7 +3,7 @@
 import { ILogManager } from "./ILogManager.js";
 import { Level } from "./Level.js";
 
-export class LogManager extends ILogManager {
+export class LogManager extends ILogManager() {
   #defaultEffectiveLevel = Level.info;
   get defaultEffectiveLevel() { return this.#defaultEffectiveLevel; }
   set defaultEffectiveLevel(value) { this.#defaultEffectiveLevel = value; }
