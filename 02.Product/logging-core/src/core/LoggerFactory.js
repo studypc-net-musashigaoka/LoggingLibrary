@@ -5,15 +5,15 @@ import { NullLoggerBuilder } from "../builder/NullLoggerBuilder.js";
 import { ILogger } from "../ILogger.js";
 import { ILoggerFactory } from "../ILoggerFactory.js";
 
-export class LoggerFactory extends ILoggerFactory {
-  /**@type{ILoggerBuilder}*/#defaultBuilder;;
-  /**@type{Map<string,ILoggerBuilder>}*/#cacheBuilder = new Map();
-  /**@type{Map<string,ILogger>}*/#cacheLogger = new Map();
-  constructor(/**@type{ILoggerBuilder|undefined}*/loggerBuilder = undefined) {
+export class LoggerFactory extends ILoggerFactory() {
+  /**@type{InstanceType<ReturnType<typeof ILoggerBuilder>>}*/#defaultBuilder;;
+  /**@type{Map<string,InstanceType<ReturnType<typeof ILoggerBuilder>>>}*/#cacheBuilder = new Map();
+  /**@type{Map<string,InstanceType<ReturnType<typeof ILogger>>>}*/#cacheLogger = new Map();
+  constructor(/**@type{InstanceType<ReturnType<typeof ILoggerBuilder>>|undefined}*/loggerBuilder = undefined) {
     super();
     this.#defaultBuilder = loggerBuilder ?? NullLoggerBuilder.instance;
   }
-  set(/**@type{string}*/name, /**@type{ILoggerBuilder}*/loggerBuilder) {
+  set(/**@type{string}*/name, /**@type{InstanceType<ReturnType<typeof ILoggerBuilder>>}*/loggerBuilder) {
     if (!loggerBuilder) throw new TypeError(`loggerBuilder is ${loggerBuilder}`);
     this.#cacheBuilder.set(name, loggerBuilder);
     this.#cacheLogger.delete(name);

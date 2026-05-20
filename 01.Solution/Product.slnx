@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/ソリューション項目/">
+    <File Path="../README.md" />
+  </Folder>
+  <Project Path="../02.Product/logging-core/logging-core.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>

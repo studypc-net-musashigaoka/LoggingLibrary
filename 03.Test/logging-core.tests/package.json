@@ -1,0 +1,24 @@
+{
+  "name": "logging-core.tests",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "vitest run",
+    "prebuild": "tsc --noEmit --skipLibCheck",
+    "build": "echo \"Check build complete\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "studypc-net-musashigaoka",
+    "email": "studypc.net.musashigaoka@outlook.com",
+    "url": "git+https://github.com/studypc-net-musashigaoka/LoggingLibrary.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "eslint": "^10.4.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
+  }
+}

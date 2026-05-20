@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [ "../../02.Product/logging-core/src/*" ]
+    },
+
+    // ★ 1. これを追加：nodenextモジュールの解決ルールをエディタに強制する
+    "moduleResolution": "nodenext",
+    // ★ 2. これを追加：ESMとCommonJSのデフォルトインポートの差異をエディタ上で吸収する
+    "allowSyntheticDefaultImports": true,
+
+    // productプロジェクトに合わせる
+    "module": "nodenext",
+    "target": "esnext",
+    "types": [ "node", "vitest/globals" ],
+    "lib": [ "esnext" ],
+    "checkJs": true,
+    "allowJs": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "verbatimModuleSyntax": false,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  },
+  "include": [
+    "vitest.config.js",
+    "tests/**/*" // tests の中身だけを見るように明示
+  ]
+}

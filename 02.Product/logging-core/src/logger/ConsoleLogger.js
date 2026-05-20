@@ -24,7 +24,7 @@ export class ConsoleLogger extends LoggerBase {
   get _fatal    () { return ConsoleLogger.#error; }
   get _emergency() { return ConsoleLogger.#error; }
 
-  constructor(/**@type{ILogManager}*/logManager, /**@type{string}*/name) {
+  constructor(/**@type{InstanceType<ReturnType<typeof ILogManager>>}*/logManager, /**@type{string}*/name) {
     super(logManager, name);
   }
 }

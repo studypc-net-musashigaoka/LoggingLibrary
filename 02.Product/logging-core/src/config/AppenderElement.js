@@ -4,7 +4,7 @@ import { ILogManager } from "../core/ILogManager.js";
 import { ConsoleLogger } from "../logger/ConsoleLogger.js";
 import { LoggerBase } from "../logger/LoggerBase.js";
 
-/**@type{Map<string,new(logManager:ILogManager,name:string)=>LoggerBase>}*/
+/**@type{Map<string,new(logManager:InstanceType<ReturnType<typeof ILogManager>>,name:string)=>LoggerBase>}*/
 const map = new Map();
 map.set('Console', ConsoleLogger);
 
@@ -30,7 +30,7 @@ export class AppenderElement {
   }
 }
 
-export function setCustomAppender(/**@type{string}*/type, /**@type{new(logManager:ILogManager,name:string)=>LoggerBase}*/constructor) {
+export function setCustomAppender(/**@type{string}*/type, /**@type{new(logManager:InstanceType<ReturnType<typeof ILogManager>>,name:string)=>LoggerBase}*/constructor) {
   if (!type) throw new TypeError(`type is ${type}`);
   if (!constructor) throw new TypeError(`constructor is ${constructor}`);
   map.set(type, constructor);

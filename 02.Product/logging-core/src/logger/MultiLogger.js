@@ -30,7 +30,7 @@ export class MultiLogger extends LoggerBase {
   get _alert    () { return this.#alert     ??= (/**@type{any[]}*/...data) => { for (const logger of this.#loggers) logger._alert    (...data); }; }
   get _fatal    () { return this.#fatal     ??= (/**@type{any[]}*/...data) => { for (const logger of this.#loggers) logger._fatal    (...data); }; }
   get _emergency() { return this.#emergency ??= (/**@type{any[]}*/...data) => { for (const logger of this.#loggers) logger._emergency(...data); }; }
-  constructor(/**@type{(new(logManager:ILogManager,name:string)=>LoggerBase)[]}*/constructors, /**@type{ILogManager}*/logManager, /**@type{string}*/name) {
+  constructor(/**@type{(new(logManager:InstanceType<ReturnType<typeof ILogManager>>,name:string)=>LoggerBase)[]}*/constructors, /**@type{InstanceType<ReturnType<typeof ILogManager>>}*/logManager, /**@type{string}*/name) {
     super(logManager, name);
     if (!constructors) throw new TypeError(`constructors is ${constructors}`);
     this.#loggers = constructors/*.filter(v => v)*/.map(v => new v(logManager, name));
