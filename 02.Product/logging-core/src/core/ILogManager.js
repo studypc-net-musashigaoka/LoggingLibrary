@@ -18,9 +18,9 @@ export const ILogManager = (/**@type{(new(...args:any[])=>any)|undefined}*/Base 
     }
     get defaultEffectiveLevel() { return Level.off; }
     /**@returns{Level|undefined}*/
-    getEffectiveLevel(/**@type{string}*/name) { return undefined; }
+    getEffectiveLevel(/**@type{string}*/name) { return undefined; void name; }
     getEffectiveLevelOrDefault(/**@type{string}*/name) { return this.getEffectiveLevel(name) ?? this.defaultEffectiveLevel }
-    isEnabledFor(/**@type{string}*/name, /**@type{Level}*/level) { return false; }
+    isEnabledFor(/**@type{string}*/name, /**@type{Level}*/level) { return false; void name; void level; }
   };
 };
 Object.defineProperty(ILogManager, Symbol.hasInstance, {

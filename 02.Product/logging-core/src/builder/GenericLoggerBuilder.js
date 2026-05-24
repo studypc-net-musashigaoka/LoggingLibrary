@@ -24,6 +24,7 @@ export class GenericLoggerBuilder extends ILoggerBuilder() {
     //  this.#fn = null;
     //}
   }
+  /** @override */
   build(/**@type{string}*/name) {
     if (this.#class) {
       try {

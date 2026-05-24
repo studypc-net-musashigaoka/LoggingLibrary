@@ -18,7 +18,7 @@ export class LoggerFactory extends ILoggerFactory() {
     this.#cacheBuilder.set(name, loggerBuilder);
     this.#cacheLogger.delete(name);
   }
-
+  /**@override*/
   createLogger(/**@type{string}*/name, /**@type{boolean}*/volatile = false) {
     if (volatile) return this.#build(name);
     let logger = this.#cacheLogger.get(name);

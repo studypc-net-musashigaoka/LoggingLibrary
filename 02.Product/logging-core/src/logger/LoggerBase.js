@@ -25,18 +25,18 @@ export class LoggerBase extends ILogger() {
   get _fatal    () { return this._emergency; }
   get _emergency() { return empty; }
   // interface実装：外部から呼出す用
-  get verbose  () { return this.isVerboseEnabled  () ? this._verbose   : empty; }
-  get trace    () { return this.isTraceEnabled    () ? this._trace     : empty; }
-  get debug    () { return this.isDebugEnabled    () ? this._debug     : empty; }
-  get info     () { return this.isInfoEnabled     () ? this._info      : empty; }
-  get notice   () { return this.isNoticeEnabled   () ? this._notice    : empty; }
-  get warn     () { return this.isWarnEnabled     () ? this._warn      : empty; }
-  get error    () { return this.isErrorEnabled    () ? this._error     : empty; }
-  get severe   () { return this.isSevereEnabled   () ? this._severe    : empty; }
-  get critical () { return this.isCriticalEnabled () ? this._critical  : empty; }
-  get alert    () { return this.isAlertEnabled    () ? this._alert     : empty; }
-  get fatal    () { return this.isFatalEnabled    () ? this._fatal     : empty; }
-  get emergency() { return this.isEmergencyEnabled() ? this._emergency : empty; }
+  /** @override */get verbose  () { return this.isVerboseEnabled  () ? this._verbose   : empty; }
+  /** @override */get trace    () { return this.isTraceEnabled    () ? this._trace     : empty; }
+  /** @override */get debug    () { return this.isDebugEnabled    () ? this._debug     : empty; }
+  /** @override */get info     () { return this.isInfoEnabled     () ? this._info      : empty; }
+  /** @override */get notice   () { return this.isNoticeEnabled   () ? this._notice    : empty; }
+  /** @override */get warn     () { return this.isWarnEnabled     () ? this._warn      : empty; }
+  /** @override */get error    () { return this.isErrorEnabled    () ? this._error     : empty; }
+  /** @override */get severe   () { return this.isSevereEnabled   () ? this._severe    : empty; }
+  /** @override */get critical () { return this.isCriticalEnabled () ? this._critical  : empty; }
+  /** @override */get alert    () { return this.isAlertEnabled    () ? this._alert     : empty; }
+  /** @override */get fatal    () { return this.isFatalEnabled    () ? this._fatal     : empty; }
+  /** @override */get emergency() { return this.isEmergencyEnabled() ? this._emergency : empty; }
   constructor(/**@type{InstanceType<ReturnType<typeof ILogManager>>}*/logManager, /**@type{string}*/name) {
     super();
     if (!logManager) throw new TypeError(`logManager is ${logManager}`);
@@ -44,6 +44,7 @@ export class LoggerBase extends ILogger() {
     this._name = name;
   }
 
+  /**@override*/
   isEnabledFor(/**@type{Level}*/level) {
     const now = Date.now();
     if (this.#cacheExpires < now) {

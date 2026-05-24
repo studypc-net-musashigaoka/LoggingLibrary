@@ -31,7 +31,7 @@ export const ILogger = (/**@type{(new(...args:any[])=>any)|undefined}*/Base = un
     get fatal    () { return empty; }
     get emergency() { return empty; }
     // isEnabledForだけオーバーライドする
-    isEnabledFor(/**@type{Level}*/level) { return false; }
+    isEnabledFor(/**@type{Level}*/level) { return false; void level; }
     isVerboseEnabled  () { return this.isEnabledFor(Level.verbose  ); }
     isTraceEnabled    () { return this.isEnabledFor(Level.trace    ); }
     isDebugEnabled    () { return this.isEnabledFor(Level.debug    ); }

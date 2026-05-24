@@ -16,8 +16,8 @@ export const ILoggerFactory = (/**@type{(new(...args:any[])=>any)|undefined}*/Ba
         configurable: false,
       });
     }
-    /**@returns{InstanceType<ReturnType<typeof ILogger>>}*/
-    createLogger(/**@type{string}*/name, /**@type{boolean}*/volatile = false) { throw new Error('オーバーライド必須'); }
+    /**@abstract @returns{InstanceType<ReturnType<typeof ILogger>>}*/
+    createLogger(/**@type{string}*/name, /**@type{boolean}*/volatile = false) { throw new Error('オーバーライド必須'); void name; void volatile; }
   };
 };
 Object.defineProperty(ILoggerFactory, Symbol.hasInstance, {

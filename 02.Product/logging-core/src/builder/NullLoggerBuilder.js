@@ -7,5 +7,6 @@ import { ILoggerBuilder } from "./ILoggerBuilder.js";
 export class NullLoggerBuilder extends ILoggerBuilder() {
   static #instance = new NullLoggerBuilder();
   static get instance() { return this.#instance; }
-  build(/**@type{string}*/name) { return NullLogger.instance; }
+  /**@override*/
+  build(/**@type{string}*/name) { return NullLogger.instance; void name; }
 }

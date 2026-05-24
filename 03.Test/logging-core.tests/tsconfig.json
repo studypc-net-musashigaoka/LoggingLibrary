@@ -6,30 +6,34 @@
       "@src/*": [ "../../02.Product/logging-core/src/*" ]
     },
 
-    // ★ 1. これを追加：nodenextモジュールの解決ルールをエディタに強制する
-    "moduleResolution": "nodenext",
-    // ★ 2. これを追加：ESMとCommonJSのデフォルトインポートの差異をエディタ上で吸収する
-    "allowSyntheticDefaultImports": true,
+    "types": [ "node", "vitest/globals" ],
 
     // productプロジェクトに合わせる
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [ "node", "vitest/globals" ],
-    "lib": [ "esnext" ],
-    "checkJs": true,
     "allowJs": true,
-    "noUncheckedIndexedAccess": true,
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
     "exactOptionalPropertyTypes": true,
+    "isolatedModules": true,
+    "lib": [ "esnext" ],
+    "module": "nodenext",
+    "moduleDetection": "force",
+    "moduleResolution": "nodenext",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    //"noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
     "strict": true,
     "strictPropertyInitialization": false,
-    "verbatimModuleSyntax": false,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true
+    "target": "esnext",
+    "verbatimModuleSyntax": false
   },
   "include": [
-    "vitest.config.js",
-    "tests/**/*" // tests の中身だけを見るように明示
+    "vitest.*.js",
+    "tests/**/*"
   ]
 }

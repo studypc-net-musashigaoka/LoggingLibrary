@@ -1,50 +1,38 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
-    // File Layout
-    "rootDir": "./src",
-    "outDir": "./dist",
-
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": ["node"],
-    // For nodejs:
-    "lib": [ "esnext" ],
-    "checkJs": true,
-    "allowJs": true,
-    // "types": ["node"],
-    // and npm install -D @types/node
-
-    // Other Outputs
-    "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "sourceMap": true,
 
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
+    "types": [ "node" ],
+
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
     "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
+    "isolatedModules": true,
+    "lib": [ "esnext" ],
+    "module": "nodenext",
+    "moduleDetection": "force",
+    "moduleResolution": "nodenext",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    //"noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
     "strict": true,
     "strictPropertyInitialization": false,
-    "verbatimModuleSyntax": false,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true
+    "target": "esnext",
+    "verbatimModuleSyntax": false
   },
   "include": [
-    "src/**/*"  // src の中身だけを見るように明示
+    "src/**/*"
   ]
 }

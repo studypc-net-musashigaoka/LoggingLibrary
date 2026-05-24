@@ -16,8 +16,8 @@ export const ILoggerBuilder = (/**@type{(new(...args:any[])=>any)|undefined}*/Ba
         configurable: false,
       });
     }
-    /**@returns{InstanceType<ReturnType<typeof ILogger>>}*/
-    build(/**@type{string}*/name) { throw new Error('オーバーライド必須'); }
+    /**@abstract @returns{InstanceType<ReturnType<typeof ILogger>>}*/
+    build(/**@type{string}*/name) { throw new Error('オーバーライド必須'); void name; }
   };
 };
 Object.defineProperty(ILoggerBuilder, Symbol.hasInstance, {
